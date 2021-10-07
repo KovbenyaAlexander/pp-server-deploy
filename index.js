@@ -8,14 +8,14 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: ["https://floating-cliffs-51873.herokuapp.com", "*"] }));
+app.use(cors());
 app.use("/api", router);
 
 const server = app.listen(PORT, () => console.log(`Start on ${PORT}`));
 
 const io = new Server(server, {
   cors: {
-    origin: "https://floating-cliffs-51873.herokuapp.com",
+    origin: "*",
   },
 });
 
